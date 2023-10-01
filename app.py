@@ -20,7 +20,7 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/chatbot', methods=['POST'])
+@app.route('./chatbot', methods=['POST'])
 def chatbot_endpoint():
     user_message = request.form['user_message']
     bot_response = chatbot.query(user_message)['text']
