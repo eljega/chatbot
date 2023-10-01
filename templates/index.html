@@ -25,7 +25,9 @@
             userInput.value = '';
             appendMessage('user', userMessage);
 
-            const chatbotUrl = `${window.location.origin}/chatbot`;
+           const baseUrl = 'https://chatbot-git-main-eljega.vercel.app/templates/index.html';  // Reemplaza con la URL de tu aplicación
+
+const chatbotUrl = `${baseUrl}/chatbot`;
 
 fetch(chatbotUrl, {
     method: 'POST',
@@ -34,6 +36,7 @@ fetch(chatbotUrl, {
         'Content-Type': 'application/x-www-form-urlencoded',
     },
 })
+
 
             .then(response => response.text())
             .then(botReply => {
