@@ -25,13 +25,16 @@
             userInput.value = '';
             appendMessage('user', userMessage);
 
-            fetch('./chatbot', {
-                method: 'POST',
-                body: new URLSearchParams({ user_message: userMessage }),
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-            })
+            const chatbotUrl = `${window.location.origin}/chatbot`;
+
+fetch(chatbotUrl, {
+    method: 'POST',
+    body: new URLSearchParams({ user_message: userMessage }),
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+    },
+})
+
             .then(response => response.text())
             .then(botReply => {
                 appendMessage('bot', botReply);
