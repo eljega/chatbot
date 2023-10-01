@@ -9,7 +9,7 @@ sendButton.addEventListener('click', () => {
     userInput.value = '';
     appendMessage('user', userMessage);
 
-    fetch('/chatbot', {
+    fetch('./chatbot', {
         method: 'POST',
         body: new URLSearchParams({ user_message: userMessage }),
         headers: {
