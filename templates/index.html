@@ -15,42 +15,7 @@
         <button id="send-button">Enviar</button>
     </div>
 
-    <script>
-        const chatBox = document.getElementById('chat-box');
-        const userInput = document.getElementById('user-input');
-        const sendButton = document.getElementById('send-button');
-
-        sendButton.addEventListener('click', () => {
-            const userMessage = userInput.value;
-            userInput.value = '';
-            appendMessage('user', userMessage);
-
-           const baseUrl = 'https://chatbot-git-main-eljega.vercel.app';  // Reemplaza con la URL de tu aplicación
-
-const chatbotUrl = `${baseUrl}/chatbot`;
-
-fetch(chatbotUrl, {
-    method: 'POST',
-    body: new URLSearchParams({ user_message: userMessage }),
-    headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-    },
-})
-
-
-            .then(response => response.text())
-            .then(botReply => {
-                appendMessage('bot', botReply);
-            });
-        });
-
-        function appendMessage(sender, message) {
-            const messageElement = document.createElement('div');
-            messageElement.classList.add(sender);
-            messageElement.innerText = message;
-            chatBox.appendChild(messageElement);
-        }
-    </script>
+    <script src="/static/js/script.js"></script>
 </body>
 </html>
 
