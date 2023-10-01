@@ -9,7 +9,7 @@ app = Flask(__name__)
 email = os.environ.get("HUGGING_FACE_EMAIL")
 password = os.environ.get("HUGGING_FACE_PASSWORD")
 
-sign = Login(email, passwd)
+sign = Login(email, password)
 cookies = sign.login()
 
 # Crea una instancia del chatbot
