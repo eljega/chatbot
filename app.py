@@ -1,12 +1,13 @@
 from flask import Flask, request, render_template, jsonify
 from hugchat import hugchat
 from hugchat.login import Login
+import os
 
 app = Flask(__name__)
 
 # Inicia sesión en Hugging Face y obtén las cookies de autorización
-email = "playgames.j.g17@gmail.com"  # Reemplaza con tu correo electrónico
-passwd = "24.Javier.98"  # Reemplaza con tu contraseña
+email = os.environ.get("HUGGING_FACE_EMAIL")
+password = os.environ.get("HUGGING_FACE_PASSWORD")
 
 sign = Login(email, passwd)
 cookies = sign.login()
