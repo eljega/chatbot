@@ -18,6 +18,7 @@ chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
 def index():
     return render_template('index.html')
 
+
 @app.route('/chatbot', methods=['POST'])
 def chatbot_endpoint():
     user_message = request.form['user_message']
